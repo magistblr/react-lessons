@@ -1,14 +1,16 @@
 import React from 'react';
 
 import PostListItem from '../post-list-item';
+import './post-list.css'
 
-const PostList = ({posts}) => {
-    {/* //с помощью компонента формирует посты */}
+const PostList = ({posts, onDelete}) => {
     const elements = posts.map((item) => {
         const {id, ...itemProps} = item;
         return (
-            <li className='list-group-item'>
-                <PostListItem {...itemProps}/>
+            <li key={id} className='list-group-item'>
+                <PostListItem
+                    {...itemProps}
+                    onDelete={() => onDelete(id)}/>
             </li>
         )
     });
@@ -23,13 +25,3 @@ const PostList = ({posts}) => {
 export default PostList;
 
 
-
-
-for (var i = 0; i < 4; i++) {
-    setTimeout(() => {
-        console.log(i);
-    },1000)
-}
-
-
-console.log(null === []);
